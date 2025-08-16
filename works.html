@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLA Works & Projects - MLA R. Basavanagoud</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .works-hero {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.9), rgba(44, 62, 80, 0.9)), url('images/image6.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .project-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            background: white;
+            border: 2px solid #e74c3c;
+            color: #e74c3c;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: #e74c3c;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .project-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-completed {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .status-ongoing {
+            background: #f39c12;
+            color: white;
+        }
+
+        .status-planned {
+            background: #3498db;
+            color: white;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .detail-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e74c3c;
+            display: block;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .progress-bar {
+            background: #ecf0f1;
+            border-radius: 10px;
+            height: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .statistics-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .project-tabs {
+                gap: 10px;
+            }
+            
+            .tab-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/images.jpg" alt="MLA R. Basavanagoud" class="logo">
+                <span>MLA R. Basavanagoud</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="biography.html" class="nav-link">Biography</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="works.html" class="nav-link active">MLA Works</a></li>
+                <li><a href="grants.html" class="nav-link">Grants & Schemes</a></li>
+                <li><a href="privileges.html" class="nav-link">Public Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="works-hero">
+        <div class="container">
+            <h1>MLA Works & Development Projects</h1>
+            <p>Comprehensive overview of development initiatives and legislative achievements</p>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Development Impact</h2>
+                <p>Key statistics showcasing our development achievements</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-label">KM Roads Built</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Schools Upgraded</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="stat-number" data-target="12">0</div>
+                    <div class="stat-label">Health Centers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Water Connections</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Categories -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Development Projects</h2>
+                <p>Browse projects by category and track their progress</p>
+            </div>
+            
+            <div class="project-tabs">
+                <button class="tab-btn active" data-category="all">
+                    <i class="fas fa-th-large"></i> All Projects
+                </button>
+                <button class="tab-btn" data-category="infrastructure">
+                    <i class="fas fa-road"></i> Infrastructure
+                </button>
+                <button class="tab-btn" data-category="education">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </button>
+                <button class="tab-btn" data-category="healthcare">
+                    <i class="fas fa-heartbeat"></i> Healthcare
+                </button>
+                <button class="tab-btn" data-category="agriculture">
+                    <i class="fas fa-seedling"></i> Agriculture
+                </button>
+            </div>
+
+            <div class="project-grid" id="projectGrid">
+                <!-- Infrastructure Projects -->
+                <div class="project-card" data-category="infrastructure">
+                    <div class="project-image" style="background-image: url('images/image5.jpg')">
+                        <span class="project-status status-completed">Completed</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Rural Road Development</h3>
+                        <p class="project-description">Construction of 50 km rural roads connecting remote villages to main highways, improving transportation and economic opportunities.</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <span class="detail-value">₹15 Cr</span>
+                                <span class="detail-label">Budget</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-value">2 Years</span>
+                                <span class="detail-label">Duration</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="infrastructure">
+                    <div class="project-image" style="background-image: url('images/image6.jpg')">
+                        <span class="project-status status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Bridge Construction Project</h3>
+                        <p class="project-description">Construction of major bridge over river to connect two districts, reducing travel time by 2 hours.</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <span class="detail-value">₹25 Cr</span>
+                                <span class="detail-label">Budget</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-value">3 Years</span>
+                                <span class="detail-label">Duration</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Projects -->
+                <div class="project-card" data-category="education">
+                    <div class="project-image" style="background-image: url('images/image7.jpg')">
+                        <span class="project-status status-completed">Completed</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Digital Classroom Initiative</h3>
+                        <p class="project-description">Installation of smart boards and digital learning equipment in 20 government schools to enhance education quality.</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <span class="detail-value">₹5 Cr</span>
+                                <span class="detail-label">Budget</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-value">1 Year</span>
+                                <span class="detail-label">Duration</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="education">
+                    <div class="project-image" style="background-image: url('images/image8.jpg')">
+                        <span class="project-status status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">New School Buildings</h3>
+                        <p class="project-description">Construction of 5 new primary school buildings with modern facilities and playgrounds in rural areas.</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <span class="detail-value">₹8 Cr</span>
+                                <span class="detail-label">Budget</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-value">2 Years</span>
+                                <span class="detail-label">Duration</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Healthcare Projects -->
+                <div class="project-card" data-category="healthcare">
+                    <div class="project-image" style="background-image: url('images/126159902_104577448151207_6280475075654494997_n.jpg')">
+                        <span class="project-status status-completed">Completed</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Primary Health Center Upgrade</h3>
+                        <p class="project-description">Modernization of 8 primary health centers with new medical equipment and 24/7 emergency services.</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <span class="detail-value">₹10 Cr</span>
+                                <span class="detail-label">Budget</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-value">18 Months</span>
+                                <span class="detail-label">Duration</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agriculture Projects -->
+                <div class="project-card" data-category="agriculture">
+                    <div class="project-image" style="background-image: url('images/191636542_201952498413701_768407525520393642_n.jpg')">
+                        <span class="project-status status-planned">Planned</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Irrigation System Development</h3>
+                        <p class="project-description">Installation of drip irrigation systems and water storage facilities to support sustainable farming practices.</p>
+                        <div class="project-details">
+                            <div class="detail-item">
+                                <span class="detail-value">₹12 Cr</span>
+                                <span class="detail-label">Budget</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-value">2.5 Years</span>
+                                <span class="detail-label">Duration</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 15%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MLA R. Basavanagoud</h3>
+                    <p>Committed to serving the people and developing our constituency for a better tomorrow.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="biography.html">Biography</a></li>
+                        <li><a href="works.html">MLA Works</a></li>
+                        <li><a href="grants.html">Grants & Schemes</a></li>
+                        <li><a href="privileges.html">Public Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Government Links</h4>
+                    <ul>
+                        <li><a href="#">Karnataka Government</a></li>
+                        <li><a href="#">Legislative Assembly</a></li>
+                        <li><a href="#">District Administration</a></li>
+                        <li><a href="#">RTI Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Emergency Contacts</h4>
+                    <ul>
+                        <li>Police: 100</li>
+                        <li>Fire: 101</li>
+                        <li>Ambulance: 108</li>
+                        <li>Helpline: 1077</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MLA R. Basavanagoud Official Website. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Project filtering
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const category = btn.getAttribute('data-category');
+                
+                projectCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.6s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Animated counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // Initialize animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('statistics-section')) {
+                        animateCounters();
+                    }
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.project-card, .statistics-section');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

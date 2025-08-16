@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grants & Schemes - MLA R. Basavanagoud</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/image2.jpg" alt="MLA R. Basavanagoud" class="logo">
+                <span>MLA R. Basavanagoud</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="biography.html" class="nav-link">Biography</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="works.html" class="nav-link">MLA Works</a></li>
+                <li><a href="grants.html" class="nav-link active">Grants & Schemes</a></li>
+                <li><a href="privileges.html" class="nav-link">Public Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, rgba(231, 76, 60, 0.9), rgba(44, 62, 80, 0.9)), url('images/image7.jpg'); background-size: cover; background-position: center;">
+        <div class="hero-content">
+            <h1>Government Grants & Schemes</h1>
+            <p>Comprehensive welfare programs for citizen empowerment and development</p>
+        </div>
+    </section>
+
+    <!-- Grants Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Available Schemes</h2>
+                <p>Various government schemes and grants for different sectors</p>
+            </div>
+            <div class="grants-container">
+                <div class="grant-card">
+                    <div class="grant-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Housing Schemes</h3>
+                    <p>Affordable housing projects for economically weaker sections</p>
+                    <div class="grant-details">
+                        <span class="amount">₹2.5 Lakh</span>
+                        <span class="beneficiaries">1000+ Families</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="showSchemeDetails('housing')">View Details</button>
+                </div>
+                <div class="grant-card">
+                    <div class="grant-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education Support</h3>
+                    <p>Scholarships and educational assistance programs</p>
+                    <div class="grant-details">
+                        <span class="amount">₹50,000</span>
+                        <span class="beneficiaries">500+ Students</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="showSchemeDetails('education')">View Details</button>
+                </div>
+                <div class="grant-card">
+                    <div class="grant-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare Schemes</h3>
+                    <p>Medical insurance and healthcare support programs</p>
+                    <div class="grant-details">
+                        <span class="amount">₹5 Lakh</span>
+                        <span class="beneficiaries">2000+ Families</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="showSchemeDetails('healthcare')">View Details</button>
+                </div>
+                <div class="grant-card">
+                    <div class="grant-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Agriculture Support</h3>
+                    <p>Farmer assistance and agricultural development schemes</p>
+                    <div class="grant-details">
+                        <span class="amount">₹6,000/year</span>
+                        <span class="beneficiaries">3000+ Farmers</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="showSchemeDetails('agriculture')">View Details</button>
+                </div>
+                <div class="grant-card">
+                    <div class="grant-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>Women Empowerment</h3>
+                    <p>Self-help groups and skill development for women</p>
+                    <div class="grant-details">
+                        <span class="amount">₹10 Lakh</span>
+                        <span class="beneficiaries">500+ Women</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="showSchemeDetails('women')">View Details</button>
+                </div>
+                <div class="grant-card">
+                    <div class="grant-icon">
+                        <i class="fas fa-elderly"></i>
+                    </div>
+                    <h3>Senior Citizen Welfare</h3>
+                    <p>Pension schemes and healthcare for senior citizens</p>
+                    <div class="grant-details">
+                        <span class="amount">₹1000/month</span>
+                        <span class="beneficiaries">2000+ Seniors</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="showSchemeDetails('senior')">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Checker -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Eligibility Checker</h2>
+                <p>Check your eligibility for various government schemes</p>
+            </div>
+            <div class="eligibility-form">
+                <form id="eligibilityForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Annual Income (₹)</label>
+                            <input type="number" id="income" placeholder="Enter annual income" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="category" required>
+                                <option value="">Select Category</option>
+                                <option value="general">General</option>
+                                <option value="obc">OBC</option>
+                                <option value="sc">SC</option>
+                                <option value="st">ST</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Location</label>
+                            <select id="location" required>
+                                <option value="">Select Location</option>
+                                <option value="rural">Rural</option>
+                                <option value="urban">Urban</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" id="age" placeholder="Enter age" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Check Eligibility</button>
+                </form>
+                <div id="eligibilityResults" class="results-section" style="display: none;">
+                    <h3>Eligibility Results</h3>
+                    <div id="resultsContent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MLA R. Basavanagoud</h3>
+                    <p>Committed to serving the people and developing our constituency for a better tomorrow.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="biography.html">Biography</a></li>
+                        <li><a href="works.html">MLA Works</a></li>
+                        <li><a href="grants.html">Grants & Schemes</a></li>
+                        <li><a href="privileges.html">Public Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Government Links</h4>
+                    <ul>
+                        <li><a href="#">Karnataka Government</a></li>
+                        <li><a href="#">Legislative Assembly</a></li>
+                        <li><a href="#">District Administration</a></li>
+                        <li><a href="#">RTI Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Emergency Contacts</h4>
+                    <ul>
+                        <li>Police: 100</li>
+                        <li>Fire: 101</li>
+                        <li>Ambulance: 108</li>
+                        <li>Helpline: 1077</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MLA R. Basavanagoud Official Website. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function showSchemeDetails(scheme) {
+            alert(`Detailed information about ${scheme} scheme will be displayed here. This would typically open a modal or navigate to a detailed page.`);
+        }
+
+        document.getElementById('eligibilityForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const income = document.getElementById('income').value;
+            const category = document.getElementById('category').value;
+            const location = document.getElementById('location').value;
+            const age = document.getElementById('age').value;
+
+            let eligibleSchemes = [];
+            
+            if (income < 600000) eligibleSchemes.push('Housing Schemes', 'Healthcare Schemes');
+            if (income < 250000) eligibleSchemes.push('Education Support');
+            if (location === 'rural') eligibleSchemes.push('Agriculture Support');
+            if (age >= 60) eligibleSchemes.push('Senior Citizen Welfare');
+
+            const resultsDiv = document.getElementById('eligibilityResults');
+            const contentDiv = document.getElementById('resultsContent');
+            
+            if (eligibleSchemes.length > 0) {
+                contentDiv.innerHTML = `<p><strong>You are eligible for:</strong></p><ul>${eligibleSchemes.map(scheme => `<li>${scheme}</li>`).join('')}</ul>`;
+                resultsDiv.style.background = '#d4edda';
+                resultsDiv.style.border = '2px solid #28a745';
+                resultsDiv.style.color = '#155724';
+            } else {
+                contentDiv.innerHTML = '<p>Based on the provided information, you may not be eligible for the current schemes. Please contact our office for personalized assistance.</p>';
+                resultsDiv.style.background = '#f8d7da';
+                resultsDiv.style.border = '2px solid #dc3545';
+                resultsDiv.style.color = '#721c24';
+            }
+            
+            resultsDiv.style.display = 'block';
+            resultsDiv.style.padding = '20px';
+            resultsDiv.style.borderRadius = '10px';
+            resultsDiv.style.marginTop = '20px';
+        });
+    </script>
+</body>
+</html>
